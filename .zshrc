@@ -1,4 +1,3 @@
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -82,8 +81,10 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 eval "$(zoxide init zsh --cmd cd)"
+
 # Aliases
 alias c='clear'
+
 # eza
 alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 
@@ -97,12 +98,11 @@ alias v='vim'
 alias f='vim $(fzf --preview "bat --style=numbers --color=always {}")'
 export EDITOR='vim'
 
-
 # Docker 
 alias dcu='docker compose up -d'
 alias dcub='docker compose up --build -d'
 alias dcd='docker compose down'
-alias dps='docker ps'
+alias dps=~/.config/scripts/docker-ps.sh
 
 alias dk=docker_kill_fzf
 
@@ -134,7 +134,6 @@ export GOARCH=amd64
 export CGO_ENABLED=1
 unset GOPROXY && unset GOSUMDB
 
-
 # previewing
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude git"
@@ -163,6 +162,8 @@ _fzf_comprun() {
 
 export TERM="xterm-256color"
 
-fastfetch 
+fastfetch
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 export PATH="$PATH:$HOME/.rvm/bin"
