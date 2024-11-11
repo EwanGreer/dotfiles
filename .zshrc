@@ -85,8 +85,8 @@ eval "$(zoxide init zsh --cmd cd)"
 # Aliases
 alias c='clear'
 
-# eza
-alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+# Eza
+alias ls="eza --color=always --long --git --icons=always --no-time --no-user --show-symlinks --inode"
 
 # Lazy
 alias lg="lazygit"
@@ -94,15 +94,17 @@ alias lzd='lazydocker'
 
 # vim
 alias vim='nvim'
-alias v='vim' 
-alias f='vim $(fzf --preview "bat --style=numbers --color=always {}")'
-export EDITOR='vim'
+alias v='nvim' 
+alias f='nvim $(fzf --preview "bat --style=numbers --color=always {}")'
+export EDITOR='nvim'
 
 # Docker 
 alias dcu='docker compose up -d'
 alias dcub='docker compose up --build -d'
 alias dcd='docker compose down'
-alias dps=~/.config/scripts/docker-ps.sh
+alias dps='~/.config/scripts/docker-ps.sh'
+
+eval $(minikube -p minikube docker-env) # minikube
 
 alias dk=docker_kill_fzf
 
@@ -111,15 +113,7 @@ docker_kill_fzf() {
 }
 
 # Tmux
-
-alias tls='tmux_attach'
-
-tmux_attach() {
-    session=$(tmux ls | fzf --no-preview | cut -d: -f1)
-    if [[ -n "$session" ]]; then
-        tmux attach-session -t "$session"
-    fi
-}
+alias tls='~/.config/scripts/tmux-ls.sh'
 
 # Shell integrations
 source <(fzf --zsh)
