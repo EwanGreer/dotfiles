@@ -12,10 +12,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # Load plugins with Zinit
 
-# Powerlevel10k prompt theme
-zinit ice depth=1
-zinit light romkatv/powerlevel10k
-
 # Syntax highlighting
 zinit light zsh-users/zsh-syntax-highlighting
 

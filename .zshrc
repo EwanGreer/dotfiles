@@ -1,7 +1,3 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 if [[ -f "/opt/homebrew/bin/brew" ]] then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
@@ -9,7 +5,6 @@ HOMEBREW_NO_ENV_HINTS=true
 
 [[ ! -f ~/.secrets ]] || source ~/.secrets
 [[ ! -f ~/.plugins.zsh ]] || source ~/.plugins.zsh
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 bindkey -e
 bindkey '^p' history-search-backward
@@ -54,9 +49,9 @@ export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude git"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_OPTS='-i --height=50%'
-export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
-export FZF_ACT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+export FZF_DEFAULT_OPTS='--tmux --height=50%'
+export FZF_CTRL_T_OPTS="--tmux --preview '$show_file_or_dir_preview'"
+export FZF_ACT_C_OPTS="--tmux --preview 'eza --tree --color=always {} | head -200'"
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500; fi" 
 
@@ -65,16 +60,14 @@ _fzf_comprun() {
   shift
 
   case "$command" in 
-    cd) fzf --preview 'eza --tree --color=always {} | head -200' "$@" --reverse ;;
-    export|unset) fzf --preview "eval 'echo \${}'" "$@" --reverse ;;
-    ssh) fzf --preview 'dig {}' "$@" --reverse ;;
-    *) fzf --preview "$show_file_or_dir_preview" "$@" --reverse ;;
+    cd) fzf-tmux --preview 'eza --tree --color=always {} | head -200' "$@" --reverse ;;
+    export|unset) fzf-tmux --preview "eval 'echo \${}'" "$@" --reverse ;;
+    ssh) fzf-tmux --preview 'dig {}' "$@" --reverse ;;
+    *) fzf-tmux --preview "$show_file_or_dir_preview" "$@" --reverse ;;
   esac
 }
 
 export TERM="xterm-kitty"
-
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 export PATH="$PATH:$HOME/.rvm/bin"
 
@@ -86,5 +79,7 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
 fastfetch
