@@ -12,3 +12,6 @@ vim.keymap.set("n", "-", "<cmd>Oil --float<cr>", { desc = "Open parent directory
 vim.keymap.set("n", "<leader>mo", "<CMD>ObsidianQuickSwitch<CR>")
 vim.keymap.set("n", "<leader>mt", "<CMD>ObsidianTags<CR>")
 vim.keymap.set("n", "<leader>mf", "<CMD>ObsidianFollowLink<CR>")
+
+-- LazyGit
+vim.keymap.set("n", "<leader>gg", "<CMD>LazyGit<CR>")

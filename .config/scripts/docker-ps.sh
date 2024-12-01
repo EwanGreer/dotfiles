@@ -2,10 +2,10 @@
 
 browse_containers() {
   # Get the list of running containers, removing the header line
-  local containers=$(docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}" | sed '1d')
+  local containers=$(docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}\t{{.Image}}" | sed '1d')
 
   # Use fzf to select a container
-  local selected=$(echo "$containers" | fzf --header "Select a container (ID, Name, Status, Image)" --border --height=50% --no-preview)
+  local selected=$(echo "$containers" | fzf-tmux -p --header "Select a container (ID, Name, Status, Ports, Image)" --border --height=50% --no-preview)
 
   # If a container is selected, display further options
   if [[ -n "$selected" ]]; then

@@ -1,13 +1,13 @@
-
 alias c='clear'
 alias ls="eza --color=always --long --git --icons=always --no-time --no-user --show-symlinks --inode"
+alias cat='bat'
 
 alias lg="lazygit"
 alias lzd='lazydocker'
 
 alias vim='nvim'
 alias v='nvim'
-alias f='nvim $(fzf --preview "bat --style=numbers --color=always {}")'
+alias f='~/.config/scripts/find-file.sh'
 export EDITOR='nvim'
 
 alias dcu='docker compose up -d'

@@ -36,7 +36,6 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 eval "$(zoxide init zsh --cmd cd)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-eval "$(minikube -p minikube docker-env)"
 
 source <(fzf --zsh)
 
@@ -54,7 +53,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude git"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS='--reverse --preview="bat --style=numbers --color=always --line-range=:500 {}"'
+
+export FZF_DEFAULT_OPTS='-i --height=50%'
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
 export FZF_ACT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
@@ -65,17 +65,26 @@ _fzf_comprun() {
   shift
 
   case "$command" in 
-    cd) fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
-    export|unset) fzf --preview "eval 'echo \${}'" "$@" ;;
-    ssh) fzf --preview 'dig {}' "$@" ;;
-    *) fzf --preview "$show_file_or_dir_preview" "$@" ;;
+    cd) fzf --preview 'eza --tree --color=always {} | head -200' "$@" --reverse ;;
+    export|unset) fzf --preview "eval 'echo \${}'" "$@" --reverse ;;
+    ssh) fzf --preview 'dig {}' "$@" --reverse ;;
+    *) fzf --preview "$show_file_or_dir_preview" "$@" --reverse ;;
   esac
 }
 
-export TERM="xterm-256color"
+export TERM="xterm-kitty"
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 export PATH="$PATH:$HOME/.rvm/bin"
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 fastfetch
