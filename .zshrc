@@ -83,6 +83,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catpuccin.toml)"
 
 fastfetch
