@@ -2,6 +2,8 @@ alias c='clear'
 alias ls="eza --color=always --long --git --icons=always --no-time --no-user --show-symlinks --inode"
 alias cat='bat'
 
+alias y='~/.config/scripts/yazi.sh'
+
 alias lg="lazygit"
 alias lzd='lazydocker'
 
