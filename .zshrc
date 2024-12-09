@@ -42,19 +42,21 @@ export GOARCH=amd64
 export CGO_ENABLED=1
 unset GOPROXY && unset GOSUMDB
 
+export PATH=$PATH:/home/shrek/.cargo/bin
+
 bindkey "ç" fzf-cd-widget
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude git"
+export FZF_ALT_R_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude git"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_OPTS='--tmux --height=50%'
 export FZF_CTRL_T_OPTS="--tmux --preview '$show_file_or_dir_preview'"
 
-export FZF_TMUX_OPTS='-p 80%,60%'
+export FZF_TMUX_OPTS='-p 80%,60% --layout=reverse-list'
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
-
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500; fi" 
 
@@ -63,17 +65,16 @@ _fzf_comprun() {
   shift
 
   case "$command" in 
-    cd) fzf-tmux --preview 'eza --tree --color=always {} | head -200' "$@" --reverse ;;
-    export|unset) fzf-tmux --preview "eval 'echo \${}'" "$@" --reverse ;;
-    ssh) fzf-tmux --preview 'dig {}' "$@" --reverse ;;
-    *) fzf-tmux --preview "$show_file_or_dir_preview" "$@" --reverse ;;
+    cd) fzf-tmux --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf-tmux --preview "eval 'echo \${}'" "$@" ;;
+    ssh) fzf-tmux --preview 'dig {}' "$@" ;;
+    *) fzf-tmux --preview "$show_file_or_dir_preview" "$@" ;;
   esac
 }
 
+eval $(thefuck --alias)
 export TERM="xterm-kitty"
-
 export PATH="$PATH:$HOME/.rvm/bin"
-
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catpuccin.toml)"
 
