@@ -55,7 +55,6 @@ export FZF_CTRL_T_OPTS="--tmux --preview '$show_file_or_dir_preview'"
 export FZF_TMUX_OPTS='-p 80%,60%'
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
-
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500; fi" 
 
 _fzf_comprun() {
@@ -70,10 +69,9 @@ _fzf_comprun() {
   esac
 }
 
-export TERM="xterm-kitty"
+export TERM="xterm-256color"
 
 export PATH="$PATH:$HOME/.rvm/bin"
-
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catpuccin.toml)"
 
