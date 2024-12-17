@@ -73,7 +73,8 @@ _fzf_comprun() {
 }
 
 eval $(thefuck --alias)
-export TERM="xterm-kitty"
+export TERM="xterm-256color"
+
 export PATH="$PATH:$HOME/.rvm/bin"
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catpuccin.toml)"
