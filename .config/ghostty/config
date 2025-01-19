@@ -1,0 +1,9 @@
+font-family = FiraCode Nerd Font Reg
+font-size = 12
+
+theme = catppuccin-mocha
+
+window-decoration = true
+
+# global quick terminal
+keybind = global:ctrl+a=toggle_quick_terminal
