@@ -1,4 +1,4 @@
-.secrets
+.secrets.zsh
 .jira
 gh
 
@@ -8,3 +8,4 @@ nvim.bak
 .starship.toml.swp
 simple-update-notifier
 jgit
+!config
