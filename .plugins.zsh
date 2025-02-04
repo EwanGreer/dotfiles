@@ -38,4 +38,3 @@ autoload -Uz compinit && compinit
 
 # Run zinit cdreplay to update completions quietly
 zinit cdreplay -q
-

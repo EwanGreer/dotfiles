@@ -3,7 +3,7 @@ if [[ -f "/opt/homebrew/bin/brew" ]] then
 fi
 HOMEBREW_NO_ENV_HINTS=true
 
-[[ ! -f ~/.secrets ]] || source ~/.secrets
+[[ ! -f ~/.secrets ]] || source ~/.secrets # TODO: add .zsh suffix
 [[ ! -f ~/.plugins.zsh ]] || source ~/.plugins.zsh
 
 bindkey -e
@@ -30,16 +30,15 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 eval "$(zoxide init zsh --cmd cd)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 source <(fzf --zsh)
 
 [[ ! -f ~/.aliases.zsh ]] || source ~/.aliases.zsh
 
-export GOPATH=~/go
-export PATH=$PATH:$GOPATH/bin
-export GOARCH=amd64
-export CGO_ENABLED=1
+export PATH="$PATH:$(go env GOPATH)/bin"
+export GOPRIVATE=github.com/dailypay
+export GONOSUMDB=github.com/dailypay/*
 unset GOPROXY && unset GOSUMDB
 
 export PATH=$PATH:/home/shrek/.cargo/bin
@@ -72,7 +71,7 @@ _fzf_comprun() {
   esac
 }
 
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
 export TERM="xterm-256color"
 
 export PATH="$PATH:$HOME/.rvm/bin"
