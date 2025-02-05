@@ -3,7 +3,7 @@ if [[ -f "/opt/homebrew/bin/brew" ]] then
 fi
 HOMEBREW_NO_ENV_HINTS=true
 
-[[ ! -f ~/.secrets ]] || source ~/.secrets # TODO: add .zsh suffix
+[[ ! -f ~/.secrets ]] || source ~/.secrets.zsh
 [[ ! -f ~/.plugins.zsh ]] || source ~/.plugins.zsh
 
 bindkey -e
