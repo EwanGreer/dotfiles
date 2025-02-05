@@ -30,6 +30,17 @@ home_icon = "~"
 style = "agnoster_short"
 
 [[blocks.segments]]
+type = "docker"
+style = "powerline"
+foreground = "p:grey"
+background = "transparent"
+template = " {{ .Context }} "
+
+[blocks.segments.properties]
+display_default = true
+
+cache_duration = "none"
+[[blocks.segments]]
 type = "git"
 foreground = "p:lavender"
 style = "plain"
