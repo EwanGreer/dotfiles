@@ -19,12 +19,6 @@ template = "{{ .Icon }} "
 type = "os"
 
 [[blocks.segments]]
-foreground = "p:blue"
-style = "plain"
-template = "{{ .UserName }}@{{ .HostName }} "
-type = "session"
-
-[[blocks.segments]]
 foreground = "p:pink"
 style = "plain"
 template = "{{ .Path }} "
@@ -43,10 +37,6 @@ template = "{{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} {{ .Working
 
 [properties.untracked_modes]
 "/Users/user/Projects/oh-my-posh/" = "no"
-
-[properties.mapped_branches]
-"feat/*" = "🚀 "
-"bug/*" = "🐛 "
 
 [blocks.segments.properties]
 fetch_status = true
