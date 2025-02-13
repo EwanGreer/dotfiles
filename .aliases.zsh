@@ -23,3 +23,5 @@ docker_kill_fzf() {
 }
 
 alias tls='~/.config/scripts/tmux-ls.sh'
+
+alias myissues='jira issue list -a$(jira me) -s~Done'

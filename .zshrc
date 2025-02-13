@@ -35,7 +35,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 eval "$(zoxide init zsh --cmd cd)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/go/bin"
 export GOPRIVATE=github.com/dailypay
 export GONOSUMDB=github.com/dailypay/*
 unset GOPROXY && unset GOSUMDB

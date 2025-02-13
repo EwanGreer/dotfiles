@@ -6,4 +6,4 @@ theme = catppuccin-macchiato
 window-decoration = true
 
 # global quick terminal
-keybind = global:ctrl+shift+a=toggle_quick_terminal
+keybind = global:super+shift+a=toggle_quick_terminal
