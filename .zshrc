@@ -7,7 +7,6 @@ HOMEBREW_NO_ENV_HINTS=true
 [[ ! -f ~/.plugins.zsh ]] || source ~/.plugins.zsh
 [[ ! -f ~/.aliases.zsh ]] || source ~/.aliases.zsh
 
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catpuccin.toml)"
 
 bindkey -e
 bindkey '^p' history-search-backward
@@ -34,6 +33,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 eval "$(zoxide init zsh --cmd cd)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catpuccin.toml)"
 
 export PATH="$PATH:$HOME/go/bin"
 export GOPRIVATE=github.com/dailypay
