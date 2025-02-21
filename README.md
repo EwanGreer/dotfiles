@@ -22,7 +22,7 @@ List of dependencies required for full use of dotfiles.
 - yazi
 - zoxide
 
-## Also recommended by not requried
+## Also recommended but not required
 
 - cmatrix
 - cowsay
