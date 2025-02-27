@@ -39,12 +39,23 @@ template = " {{ .Context }} "
 [blocks.segments.properties]
 display_default = true
 
-cache_duration = "none"
 [[blocks.segments]]
 type = "git"
 foreground = "p:lavender"
 style = "plain"
 template = "{{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} {{ .Staging.String }}{{ end }}"
+
+[[blocks]]
+alignment = "right"
+type = "prompt"
+
+[[blocks.segments]]
+type = "aws"
+style = "powerline"
+foreground = "p:grey"
+background = "transparent"
+template = " {{ .Env.AWS_PROFILE }} "
+cache_duration = "none"
 
 [properties.untracked_modes]
 "/Users/user/Projects/oh-my-posh/" = "no"
