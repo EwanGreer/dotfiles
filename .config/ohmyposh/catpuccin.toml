@@ -34,7 +34,7 @@ type = "docker"
 style = "powerline"
 foreground = "p:grey"
 background = "transparent"
-template = " {{ .Context }} "
+template = " {{ if and (ne .Context \"desktop-linux\") (ne .Context \"default\") }}{{ .Context }}{{ end }} "
 
 [blocks.segments.properties]
 display_default = true
