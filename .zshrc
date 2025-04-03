@@ -74,4 +74,7 @@ _fzf_comprun() {
 }
 
 export TERM="xterm-256color"
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
