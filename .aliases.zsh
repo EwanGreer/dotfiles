@@ -2,8 +2,6 @@ alias c='clear'
 alias ls="eza --color=always --long --git --icons=always --no-time --no-user --show-symlinks --inode"
 alias cat='bat'
 
-alias y='~/.config/scripts/yazi.sh'
-
 alias lg="lazygit"
 alias lzd='lazydocker'
 
@@ -30,3 +28,4 @@ alias myissues='jira issue list -a$(jira me) -s~Done'
 alias '?'='ollama run deepseek-r1:14b'
 
 alias awsps='export AWS_PROFILE=$(dp awsso li profiles | fzf)'
+alias mr="mise run"
