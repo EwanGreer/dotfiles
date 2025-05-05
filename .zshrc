@@ -32,7 +32,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 eval "$(zoxide init zsh --cmd cd)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catpuccin.toml)"
 
@@ -73,5 +73,9 @@ _fzf_comprun() {
   esac
 }
 
+# Mise - package manager
+# eval "$(~/.local/bin/mise activate zsh)"
+eval "$(mise activate zsh)"
+
 export TERM="xterm-256color"
-export PATH="$PATH:$HOME/.rvm/bin"
+
