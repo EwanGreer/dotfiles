@@ -30,3 +30,4 @@ alias myissues='jira issue list -a$(jira me) -s~Done'
 alias '?'='ollama run deepseek-r1:14b'
 
 alias awsps='export AWS_PROFILE=$(dp awsso li profiles | fzf)'
+alias mr='mise run'
