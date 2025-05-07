@@ -90,3 +90,5 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr"
