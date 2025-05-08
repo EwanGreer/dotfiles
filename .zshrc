@@ -31,7 +31,7 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# eval "$(zoxide init zsh --cmd cd)"
+eval "$(zoxide init zsh --cmd cd)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catpuccin.toml)"
@@ -78,8 +78,8 @@ eval "$(mise activate zsh)"
 
 export TERM="xterm-256color"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 # Yazi
 function y() {
