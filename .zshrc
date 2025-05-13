@@ -7,7 +7,6 @@ HOMEBREW_NO_ENV_HINTS=true
 [[ ! -f ~/.plugins.zsh ]] || source ~/.plugins.zsh
 [[ ! -f ~/.aliases.zsh ]] || source ~/.aliases.zsh
 
-
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
@@ -78,8 +77,7 @@ eval "$(mise activate zsh)"
 
 export TERM="xterm-256color"
 
-# export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init -)"
+export EDITOR="nvim"
 
 # Yazi
 function y() {
