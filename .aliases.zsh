@@ -8,7 +8,6 @@ alias lzd='lazydocker'
 alias vim='nvim'
 alias v='nvim'
 alias f='~/.config/scripts/find-file.sh'
-export EDITOR='nvim'
 
 alias dcu='docker compose up -d'
 alias dcub='docker compose up --build -d'
@@ -29,3 +28,10 @@ alias '?'='ollama run deepseek-r1:14b'
 
 alias awsps='export AWS_PROFILE=$(dp awsso li profiles | fzf)'
 alias mr='mise run'
+
+# git alias
+alias gp='git pull'
+alias gf='git fetch'
+alias gp='git push'
+alias gc='git commit -m'
+alias gac='git add . && git commit -m'
