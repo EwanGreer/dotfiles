@@ -4,3 +4,6 @@
 
 -- Oil
 vim.keymap.set("n", "-", "<cmd>Oil --float<cr>", { desc = "Open parent directory" })
+
+-- DBUI
+vim.keymap.set("n", "<leader>DB", "<cmd>DBUI<cr>", { desc = "Open DBUI" })
