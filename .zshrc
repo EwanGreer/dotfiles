@@ -90,3 +90,4 @@ function y() {
 }
 
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr"
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
