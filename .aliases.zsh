@@ -32,6 +32,7 @@ alias mr='mise run'
 # git alias
 alias gp='git pull'
 alias gf='git fetch'
-alias gp='git push'
+alias gP='git push'
 alias gc='git commit -m'
 alias gac='git add . && git commit -m'
+alias gm='git merge main'
