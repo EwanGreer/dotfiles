@@ -4,7 +4,6 @@ return {
   opts = {
     dashboard = {
       preset = {
-        header = [[]],
         keys = {
           { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
@@ -30,7 +29,7 @@ return {
         },
       },
       sections = {
-        { section = "header" },
+        { padding = 3 },
         { pane = 1, icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
         { pane = 1, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
         { pane = 1, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
