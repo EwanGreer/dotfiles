@@ -36,3 +36,6 @@ alias gP='git push'
 alias gc='git commit -m'
 alias gac='git add . && git commit -m'
 alias gm='git merge main'
+
+alias t='task'
+alias tu='taskwarrior-tui'
