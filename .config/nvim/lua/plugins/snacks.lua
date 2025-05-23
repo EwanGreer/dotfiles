@@ -60,7 +60,6 @@ return {
         files = {
           hidden = true,
           ignored = true,
-          -- additionally explicitly exclude any patterns:
           exclude = { ".git/**", "node_modules/**" },
           include = { ".env" },
         },
