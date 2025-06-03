@@ -10,12 +10,9 @@ List of dependencies required for full use of dotfiles.
 - brew
 - docker && docker compose
 - eza
-- fastfetch
 - fd
 - fzf
 - git
-- lazydocker
-- lazygit
 - neovim
 - oh-my-posh
 - tmux
@@ -24,7 +21,5 @@ List of dependencies required for full use of dotfiles.
 
 ## Also recommended but not required
 
-- cmatrix
-- cowsay
 - tldr
 - glow (charmbracelet)
