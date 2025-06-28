@@ -39,3 +39,5 @@ alias gm='git merge main'
 
 alias t='task'
 alias tu='taskwarrior-tui'
+
+alias mr='mise run'
