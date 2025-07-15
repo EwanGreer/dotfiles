@@ -41,3 +41,4 @@ alias t='task'
 alias tu='taskwarrior-tui'
 
 alias mr='mise run'
+alias dpk='dp mesh k'

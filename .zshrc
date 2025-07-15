@@ -89,5 +89,5 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
