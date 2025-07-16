@@ -31,7 +31,14 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 eval "$(zoxide init zsh --cmd cd)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+if [[ "$(uname)" == "Darwin" ]]; then
+    # macOS
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ "$(uname)" == "Linux" ]]; then
+    # Linux
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catpuccin.toml)"
 
