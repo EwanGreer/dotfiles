@@ -11,3 +11,20 @@ vim.api.nvim_create_autocmd("VimLeave", {
   pattern = "*",
   command = "set guicursor=a:ver25",
 })
+
+vim.diagnostic.config({
+  virtual_text = false, -- This disables the text at the end of the line
+})
+
+-- Example for nvim-lspconfig
+require("lspconfig").gopls.setup({
+  settings = {
+    gopls = {
+      staticcheck = true,
+      analyses = {
+        ST1000 = false,
+      },
+      gofumpt = true,
+    },
+  },
+})
