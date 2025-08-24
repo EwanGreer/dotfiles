@@ -88,3 +88,9 @@ alias tu='taskwarrior-tui'
 # --------------------
 
 alias dpk='dp mesh k'
+
+# --------------------
+# Terraform
+# --------------------
+
+alias tf="terraform"
