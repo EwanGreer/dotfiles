@@ -12,7 +12,6 @@ vim.api.nvim_create_autocmd("VimLeave", {
   command = "set guicursor=a:ver25",
 })
 
--- Example for nvim-lspconfig
 require("lspconfig").gopls.setup({
   settings = {
     gopls = {
