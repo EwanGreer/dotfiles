@@ -1,0 +1,13 @@
+[settings]
+experimental = true
+idiomatic_version_file_enable_tools = []
+
+[tools]
+ruby = "3"
+go = "1.24"
+
+[tasks]
+
+[tasks."unit_with_cover"]
+run = "go test ./... -coverprofile=c.out; go tool cover -html=c.out"
+description = "run go unit tests with html coverage output"
