@@ -1,10 +1,10 @@
 [settings]
 experimental = true
-idiomatic_version_file_enable_tools = []
+idiomatic_version_file_enable_tools = ["ruby"]
 
 [tools]
 ruby = "3"
-go = "1.24"
+go = "1.25"
 
 [tasks]
 
