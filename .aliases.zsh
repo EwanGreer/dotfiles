@@ -1,6 +1,7 @@
 alias c='clear'
 alias ls="eza --color=always --long --git --icons=always --no-time --show-symlinks --inode"
 alias cat='bat'
+alias quote='~/.config/scripts/quote.sh'
 
 # --------------------
 # Lazy Tools

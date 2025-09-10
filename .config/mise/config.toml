@@ -1,13 +1,11 @@
+[tools]
+ruby = "3"
+usage = "latest"
+go = "latest"
+fzf = "latest"
+"aqua:yorukot/superfile" = "latest"
+"go:github.com/charmbracelet/gum" = "latest"
+
 [settings]
 experimental = true
 idiomatic_version_file_enable_tools = ["ruby"]
-
-[tools]
-ruby = "3"
-go = "1.25"
-
-[tasks]
-
-[tasks."unit_with_cover"]
-run = "go test ./... -coverprofile=c.out; go tool cover -html=c.out"
-description = "run go unit tests with html coverage output"
