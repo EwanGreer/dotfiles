@@ -87,9 +87,6 @@ _fzf_comprun() {
   esac
 }
 
-# Mise - package manager
-eval "$(mise activate zsh)"
-
 export TERM="xterm-256color"
 
 export EDITOR="nvim"
@@ -106,3 +103,6 @@ function y() {
 
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+alias awsps='export AWS_PROFILE=$(dp awsso li profiles | fzf)'
+eval "$(/Users/ewangreer/.local/bin/mise activate zsh)"
