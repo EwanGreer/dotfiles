@@ -1,7 +1,7 @@
 font-family = FiraCode Nerd Font Reg
 font-size = 12
 
-theme = catppuccin-macchiato
+theme = "catppuccin-macchiato.conf"
 
 window-decoration = true
 

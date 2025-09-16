@@ -26,12 +26,9 @@ alias dcu='docker compose up -d'
 alias dcub='docker compose up --build -d'
 alias dcd='docker compose down'
 alias dps='~/.config/scripts/docker-ps.sh'
-alias dk=docker_kill_fzf
-alias clearDocker='docker rm $(docker ps -aq); docker rmi $(docker images -q); docker volume rm $(docker volume ls -q);'
+alias dk='~/.config/scripts/docker-kill.sh'
 
-docker_kill_fzf() {
-  docker kill $(docker ps --format '{{.ID}}\t{{.Image}}\t{{.Names}}' | fzf | awk '{print $1}')
-}
+alias clearDocker='docker rm $(docker ps -aq); docker rmi $(docker images -q); docker volume rm $(docker volume ls -q);'
 
 # --------------------
 # Tmux
