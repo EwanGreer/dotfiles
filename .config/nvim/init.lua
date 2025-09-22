@@ -12,18 +12,6 @@ vim.api.nvim_create_autocmd("VimLeave", {
   command = "set guicursor=a:ver25",
 })
 
-require("lspconfig").gopls.setup({
-  settings = {
-    gopls = {
-      staticcheck = true,
-      analyses = {
-        ST1000 = false,
-      },
-      gofumpt = true,
-    },
-  },
-})
-
 vim.filetype.add({
   extension = {
     mjml = "html",
@@ -31,3 +19,21 @@ vim.filetype.add({
     templ = "templ",
   },
 })
+
+-- Configure gopls with Neovim 0.11 native LSP
+vim.lsp.config.gopls = {
+  cmd = { 'gopls' },
+  root_markers = { 'go.mod', 'go.work', '.git' },
+  filetypes = { 'go', 'gomod' },
+  settings = {
+    gopls = {
+      analyses = {
+        ST1000 = false,  -- Disable package comment requirement
+      },
+      staticcheck = true,
+      gofumpt = true,
+    },
+  },
+}
+
+vim.lsp.enable({'gopls'})
