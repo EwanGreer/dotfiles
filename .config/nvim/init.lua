@@ -26,7 +26,7 @@ vim.lsp.config.gopls = {
   root_markers = { "go.mod", "go.work", ".git" },
   filetypes = { "go", "gomod" },
   settings = {
-    go = {
+    gopls = {
       analyses = {
         ST1000 = false, -- Disable package comment requirement
       },

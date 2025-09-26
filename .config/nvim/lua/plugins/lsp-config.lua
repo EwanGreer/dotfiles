@@ -11,6 +11,12 @@ return {
     end
   end,
 
+  opts = {
+    inlay_hints = {
+      enabled = false,
+    },
+  },
+
   ------@class PluginLspOpts
   ---opts = function(_, opts)
 }
