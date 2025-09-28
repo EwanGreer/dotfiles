@@ -75,16 +75,6 @@ template = " {{ .Env.AWS_PROFILE }}"
 cache_duration = "none"
 
 [[blocks.segments]]
-type = "kubectl"
-style = "plain"
-foreground = "p:blue"
-background = "transparent"
-template = "⎈ {{ .Context }}{{ if .Namespace }}:{{ .Namespace }}{{ end }}"
-[blocks.segments.properties]
-display_mode = "context_and_namespace"
-cache_duration = "none"
-
-[[blocks.segments]]
 style = "plain"
 foreground = "p:lavender"
 template = "\n"
