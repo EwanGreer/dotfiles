@@ -37,13 +37,6 @@ alias clearDocker='docker rm $(docker ps -aq); docker rmi $(docker images -q); d
 alias tls='~/.config/scripts/tmux-ls.sh'
 
 # --------------------
-# Jira
-# --------------------
-
-alias myissues='jira issue list -a$(jira me) -s~Done'
-
-
-# --------------------
 # AI
 # --------------------
 
