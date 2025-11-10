@@ -6,7 +6,7 @@ HOMEBREW_NO_ENV_HINTS=true
 [[ ! -f ~/.secrets.zsh ]] || source ~/.secrets.zsh
 [[ ! -f ~/.plugins.zsh ]] || source ~/.plugins.zsh
 [[ ! -f ~/.aliases.zsh ]] || source ~/.aliases.zsh
-[[ ! -f "~/.local.zsh" ]] || source "~/.local.zsh"
+[[ ! -f ~/.local.zsh ]] || source ~/.local.zsh
 
 bindkey -e
 bindkey '^p' history-search-backward
