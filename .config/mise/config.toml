@@ -5,6 +5,7 @@ go = "latest"
 fzf = "latest"
 "aqua:yorukot/superfile" = "latest"
 "go:github.com/charmbracelet/gum" = "latest"
+tf-summarize = "latest"
 
 [settings]
 experimental = true
