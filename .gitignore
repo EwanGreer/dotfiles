@@ -1,5 +1,6 @@
 .secrets.zsh
 .secrets
+.local.zsh
 .jira
 gh
 
