@@ -31,6 +31,8 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+eval "$($HOME/.local/bin/mise activate zsh)"
+
 eval "$(zoxide init zsh --cmd cd)"
 
 if [[ "$(uname)" == "Darwin" ]]; then
@@ -106,4 +108,3 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 
 alias awsps='export AWS_PROFILE=$(dp awsso li profiles | fzf)'
-eval "$($HOME/.local/bin/mise activate zsh)"
