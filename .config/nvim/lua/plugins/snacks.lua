@@ -59,14 +59,9 @@ return {
       sources = {
         files = {
           hidden = true,
-          ignored = true,
-          exclude = { ".git/**", "node_modules/**" },
-          include = { ".env" },
         },
         explorer = {
           hidden = true,
-          exclude = { "node_modules", ".git" },
-          include = { ".env" },
           layout = {
             preset = "sidebar",
             layout = {
@@ -74,9 +69,9 @@ return {
             },
           },
         },
-        grep = { hidden = true, ignored = true },
-        grep_word = { hidden = true, ignored = true },
-        grep_buffers = { hidden = true, ignored = true },
+        grep = { hidden = true },
+        grep_word = { hidden = true },
+        grep_buffers = { hidden = true },
       },
     },
   },

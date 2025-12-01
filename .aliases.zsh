@@ -46,7 +46,20 @@ alias '?'='ollama run deepseek-r1:14b'
 # AWS
 # --------------------
 
-alias awsps='export AWS_PROFILE=$(dp awsso li profiles | fzf)'
+function awsps() {
+  # 1. Capture the profile first
+  # We use the full command 'granted' if 'dp' is an alias
+  local profile
+  profile=$(dp awsso list profiles | fzf)
+
+  # 2. Check if the user actually picked something (didn't press Esc)
+  if [ -n "$profile" ]; then
+    export AWS_PROFILE="$profile"
+    echo "✅ AWS_PROFILE set to: $profile"
+  else
+    echo "❌ Usage cancelled"
+  fi
+}
 
 # --------------------
 # Mise

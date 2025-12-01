@@ -62,14 +62,19 @@ fi
 
 source <(fzf --zsh)
 
-export FZF_DEFAULT_OPTS=" \
-  --tmux --height=50% \
---color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796 \
---color=fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6 \
---color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796 \
---color=selected-bg:#494D64 \
---color=border:#6E738D,label:#CAD3F5 \
-  "
+# export FZF_DEFAULT_OPTS=" \
+#   --tmux --height=50% \
+# --color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796 \
+# --color=fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6 \
+# --color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796 \
+# --color=selected-bg:#494D64 \
+# --color=border:#6E738D,label:#CAD3F5 \
+#   "
+
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
+" --color=bg+:#353b45,bg:#282c34,spinner:#56b6c2,hl:#61afef"\
+" --color=fg:#565c64,header:#61afef,info:#e5c07b,pointer:#56b6c2"\
+" --color=marker:#56b6c2,fg+:#b6bdca,prompt:#e5c07b,hl+:#61afef"
 
 export FZF_CTRL_T_OPTS="--tmux --preview '$show_file_or_dir_preview'"
 
@@ -106,5 +111,3 @@ function y() {
 
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-
-alias awsps='export AWS_PROFILE=$(dp awsso li profiles | fzf)'
