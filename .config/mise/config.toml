@@ -42,6 +42,9 @@ rust = "latest"
 rust-analyzer = "latest"
 lua-language-server = "latest"
 terraform = "latest"
+yazi = "latest"
+k9s = "latest"
+yarn = "latest"
 
 [settings]
 experimental = true
