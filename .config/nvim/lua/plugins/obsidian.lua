@@ -1,7 +1,6 @@
 return {
   "obsidian-nvim/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
-  dependencies = { "nvim-lua/plenary.nvim" },
   ft = "markdown",
   ---@module 'obsidian'
   ---@type obsidian.config
@@ -9,11 +8,8 @@ return {
     workspaces = {
       {
         name = "personal",
-        path = "~/vaults/notes",
+        path = "~/Documents/notes",
       },
     },
-    config = function(_, opts)
-      require("obsidian").setup(opts) -- <— guarantees setup ran
-    end,
   },
 }
