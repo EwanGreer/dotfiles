@@ -31,6 +31,7 @@ yazi = "latest"
 k9s = "latest"
 yarn = "latest"
 yq = "latest"
+"cargo:presenterm" = "latest"
 
 [settings]
 experimental = true
