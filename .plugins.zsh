@@ -1,40 +1,43 @@
-# Define the Zinit installation path
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-# Ensure Zinit is installed
 if [ ! -d "$ZINIT_HOME" ]; then
    mkdir -p "$(dirname $ZINIT_HOME)"
    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-# Source Zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Load plugins with Zinit
-
-# Syntax highlighting
-zinit light zsh-users/zsh-syntax-highlighting
-
-# Command completions
+zinit ice blockf
 zinit light zsh-users/zsh-completions
 
-# Autosuggestions
-zinit light zsh-users/zsh-autosuggestions
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 
-# FZF tab completion
-zinit light Aloxaf/fzf-tab
+zinit wait lucid for \
+    atload"_zsh_autosuggest_start" \
+        zsh-users/zsh-autosuggestions \
+    Aloxaf/fzf-tab \
+    MichaelAquilina/zsh-you-should-use
 
-# Oh My Zsh plugins (snippets)
-zinit snippet OMZP::git
-zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
-zinit snippet OMZP::aws
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
-zinit snippet OMZP::command-not-found
+zinit wait lucid for \
+    atinit"zicompinit; zicdreplay" \
+        zsh-users/zsh-syntax-highlighting
 
-# Load completions
-autoload -Uz compinit && compinit
+zinit wait lucid for \
+    OMZP::git \
+    OMZP::sudo \
+    OMZP::command-not-found
 
-# Run zinit cdreplay to update completions quietly
-zinit cdreplay -q
+zinit wait lucid has"kubectl" for \
+    OMZP::kubectl \
+    OMZP::kubectx
+
+zinit wait lucid has"aws" for \
+    OMZP::aws
+
+zinit wait lucid has"docker" for \
+    OMZP::docker-compose
