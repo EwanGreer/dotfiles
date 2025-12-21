@@ -1,8 +1,3 @@
-if [[ -f "/opt/homebrew/bin/brew" ]] then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-HOMEBREW_NO_ENV_HINTS=true
-
 [[ ! -f ~/.secrets.zsh ]] || source ~/.secrets.zsh
 [[ ! -f ~/.plugins.zsh ]] || source ~/.plugins.zsh
 [[ ! -f ~/.aliases.zsh ]] || source ~/.aliases.zsh
@@ -39,6 +34,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
 elif [[ "$(uname)" == "Linux" ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+HOMEBREW_NO_ENV_HINTS=true
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catpuccin.toml)"
 
@@ -51,7 +47,6 @@ bindkey "ç" fzf-cd-widget
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude git"
-export FZF_ALT_R_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude git"
 
 if [[ ! "$PATH" == */Users/ewangreer/.fzf/bin* ]]; then
   PATH="${PATH:+${PATH}:}/Users/ewangreer/.fzf/bin"
@@ -64,12 +59,11 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
 " --color=fg:#565c64,header:#61afef,info:#e5c07b,pointer:#56b6c2"\
 " --color=marker:#56b6c2,fg+:#b6bdca,prompt:#e5c07b,hl+:#61afef"
 
+show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi" 
 export FZF_CTRL_T_OPTS="--tmux --preview '$show_file_or_dir_preview'"
 
 export FZF_TMUX_OPTS='-p 80%,60% --layout=reverse-list'
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
-
-show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500; fi" 
 
 _fzf_comprun() {
   local command=$1
@@ -86,7 +80,6 @@ _fzf_comprun() {
 export TERM="xterm-256color"
 export EDITOR="nvim"
 
-# Yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -97,4 +90,4 @@ function y() {
 }
 
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+# export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
