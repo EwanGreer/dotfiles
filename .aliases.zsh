@@ -73,12 +73,6 @@ alias t='task'
 alias tu='taskwarrior-tui'
 
 # --------------------
-# DP Cli
-# --------------------
-
-alias dpk='dp mesh k'
-
-# --------------------
 # Terraform
 # --------------------
 
