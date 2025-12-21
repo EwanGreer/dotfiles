@@ -14,8 +14,6 @@ alias lzd='lazydocker'
 # Vim
 # --------------------
 
-alias vim='nvim'
-alias v='nvim'
 alias f='~/.config/scripts/find-file.sh'
 
 # --------------------
@@ -56,12 +54,6 @@ alias mr='mise run'
 # Git
 # --------------------
 
-alias gp='git pull'
-alias gf='git fetch'
-alias gP='git push'
-alias gc='git commit -m'
-alias gac='git add . && git commit -m'
-alias gm='git merge main'
 alias g-cc='~/.config/scripts/git-cc.sh'
 alias g-pr="gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout"
 
