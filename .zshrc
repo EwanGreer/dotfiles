@@ -1,7 +1,7 @@
 function cached_eval() {
     local cache_file="$1"
     local cmd="$2"
-    
+
     if [[ ! -f "$cache_file" ]]; then
         mkdir -p "$(dirname "$cache_file")"
         eval "$cmd" > "$cache_file"
@@ -87,7 +87,6 @@ export PATH="$PATH:$HOME/go/bin"
 export GOPRIVATE=github.com/dailypay
 export GONOSUMDB=github.com/dailypay/*
 unset GOPROXY && unset GOSUMDB
-
 
 function y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
