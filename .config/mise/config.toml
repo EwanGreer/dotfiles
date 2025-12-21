@@ -1,7 +1,7 @@
 [tools]
 ruby = "3"
 usage = "latest"
-go = "1"
+go = "1.25"
 fzf = "latest"
 "go:github.com/charmbracelet/gum" = "latest"
 tf-summarize = "latest"
