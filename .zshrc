@@ -63,10 +63,7 @@ export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude git"
 
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
-" --color=bg+:#353b45,bg:#282c34,spinner:#56b6c2,hl:#61afef"\
-" --color=fg:#565c64,header:#61afef,info:#e5c07b,pointer:#56b6c2"\
-" --color=marker:#56b6c2,fg+:#b6bdca,prompt:#e5c07b,hl+:#61afef"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:#353b45,bg:#282c34,spinner:#56b6c2,hl:#61afef --color=fg:#565c64,header:#61afef,info:#e5c07b,pointer:#56b6c2 --color=marker:#56b6c2,fg+:#b6bdca,prompt:#e5c07b,hl+:#61afef"
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 export FZF_CTRL_T_OPTS="--tmux --preview '$show_file_or_dir_preview'"
