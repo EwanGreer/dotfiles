@@ -32,14 +32,11 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 eval "$($HOME/.local/bin/mise activate zsh)"
-
 eval "$(zoxide init zsh --cmd cd)"
 
 if [[ "$(uname)" == "Darwin" ]]; then
-    # macOS
     eval "$(/opt/homebrew/bin/brew shellenv)"
 elif [[ "$(uname)" == "Linux" ]]; then
-    # Linux
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
@@ -61,15 +58,6 @@ if [[ ! "$PATH" == */Users/ewangreer/.fzf/bin* ]]; then
 fi
 
 source <(fzf --zsh)
-
-# export FZF_DEFAULT_OPTS=" \
-#   --tmux --height=50% \
-# --color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796 \
-# --color=fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6 \
-# --color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796 \
-# --color=selected-bg:#494D64 \
-# --color=border:#6E738D,label:#CAD3F5 \
-#   "
 
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
 " --color=bg+:#353b45,bg:#282c34,spinner:#56b6c2,hl:#61afef"\
@@ -96,7 +84,6 @@ _fzf_comprun() {
 }
 
 export TERM="xterm-256color"
-
 export EDITOR="nvim"
 
 # Yazi
