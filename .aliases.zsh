@@ -23,6 +23,7 @@ alias f='~/.config/scripts/find-file.sh'
 alias dcu='docker compose up -d'
 alias dcub='docker compose up --build -d'
 alias dcd='docker compose down'
+alias dcl='docker compose logs -f'
 alias dps='~/.config/scripts/docker-ps.sh'
 alias dk='~/.config/scripts/docker-kill.sh'
 
