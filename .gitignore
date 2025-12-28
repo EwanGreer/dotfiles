@@ -12,3 +12,5 @@ simple-update-notifier
 jgit
 !config
 raycast
+
+ngrok
