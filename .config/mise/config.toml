@@ -1,5 +1,5 @@
 [tools]
-ruby = "3"
+ruby = "3.1.4"
 usage = "latest"
 go = "1.25"
 fzf = "latest"
@@ -33,6 +33,7 @@ yarn = "latest"
 yq = "latest"
 "cargo:presenterm" = "latest"
 "cargo:spotatui" = "latest"
+"npm:@anthropic-ai/claude-code" = "latest"
 
 [settings]
 experimental = true
