@@ -1,4 +1,6 @@
-font-family = FiraCode Nerd Font Reg
+command = /usr/bin/zsh
+
+font-family = JetBrains Mono
 font-size = 19
 
 # theme = "catppuccin-macchiato.conf"
