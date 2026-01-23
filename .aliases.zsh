@@ -70,3 +70,9 @@ alias tu='taskwarrior-tui'
 # --------------------
 
 alias tf="terraform"
+
+# --------------------
+# Golang
+# --------------------
+
+alias gor='go run'

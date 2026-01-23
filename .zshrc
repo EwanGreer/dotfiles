@@ -74,10 +74,10 @@ _fzf_comprun() {
     local command=$1
     shift
     case "$command" in
-        cd) fzf-tmux --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+        cd) fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
         export|unset) fzf-tmux --preview "eval 'echo \${}'" "$@" ;;
-        ssh) fzf-tmux --preview 'dig {}' "$@" ;;
-        *) fzf-tmux --preview "$show_file_or_dir_preview" "$@" ;;
+        ssh) fzf --preview 'dig {}' "$@" ;;
+        *) fzf --preview "$show_file_or_dir_preview" "$@" ;;
     esac
 }
 

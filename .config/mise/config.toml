@@ -34,6 +34,7 @@ yq = "latest"
 "cargo:presenterm" = "latest"
 "cargo:spotatui" = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
+"go:github.com/unkn0wn-root/resterm/cmd/resterm" = "latest"
 
 [settings]
 experimental = true
