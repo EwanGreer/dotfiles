@@ -1,7 +1,7 @@
 [tools]
-ruby = "3.1.4"
+ruby = "latest"
 usage = "latest"
-go = "1.25"
+go = "latest"
 fzf = "latest"
 "go:github.com/charmbracelet/gum" = "latest"
 tf-summarize = "latest"
@@ -33,8 +33,9 @@ yarn = "latest"
 yq = "latest"
 "cargo:presenterm" = "latest"
 "cargo:spotatui" = "latest"
-"npm:@anthropic-ai/claude-code" = "latest"
 "go:github.com/unkn0wn-root/resterm/cmd/resterm" = "latest"
+"go:github.com/joshmedeski/sesh/v2" = "latest"
+"go:github.com/jorgerojas26/lazysql" = "latest"
 
 [settings]
 experimental = true

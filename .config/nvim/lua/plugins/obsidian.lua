@@ -11,5 +11,6 @@ return {
         path = "~/Documents/notes",
       },
     },
+    legacy_commands = false,
   },
 }
