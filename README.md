@@ -1,30 +1,38 @@
-# README
+# dotfiles
 
-My personal dotfiles. There are probably better places to borrow from.
+## Setup
+
+```sh
+git clone https://github.com/EwanGreer/dotfiles ~/.dotfiles
+cd ~/.dotfiles
+```
+
+Install [stow](https://www.gnu.org/software/stow/) if not already present:
+
+```sh
+brew install stow
+```
+
+Then symlink everything into `$HOME`:
+
+```sh
+stow .
+```
+
+Create `~/.secrets.zsh` for any config you don't want committed (tokens, private env vars, etc.) — it's sourced automatically but gitignored.
+
+Tools are managed by [mise](https://mise.jdx.dev). After symlinking, run:
+
+```sh
+mise install
+```
 
 ## Dependencies
 
-List of dependencies required for full use of dotfiles.
+Not managed by mise — install these first:
 
-- bat
-- brew
-- docker && docker compose
-- eza
-- fd
-- fzf
-- gh
-- git
-- gum (charmbracelet)
-- mise
-- neovim
-- oh-my-posh
-- ollama (model: deepseek-r1:14b)
-- fortune + cowsay
-- tmux
-- yazi
-- zoxide
-
-## Also recommended but not required
-
-- tldr
-- glow (charmbracelet)
+- [brew](https://brew.sh)
+- [mise](https://mise.jdx.dev)
+- [oh-my-posh](https://ohmyposh.dev)
+- [ollama](https://ollama.com) — pull `deepseek-r1:14b` for the `?` alias
+- fortune + cowsay — for the `quote` alias
