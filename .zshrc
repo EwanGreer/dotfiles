@@ -48,6 +48,7 @@ fi
 export HOMEBREW_NO_ENV_HINTS=true
 
 cached_eval ~/.cache/zsh/mise.zsh '$HOME/.local/bin/mise activate zsh'
+cached_eval ~/.cache/zsh/mise-completions.zsh '$HOME/.local/bin/mise completion zsh'
 
 cached_eval ~/.cache/zsh/zoxide.zsh 'zoxide init zsh --cmd cd'
 
