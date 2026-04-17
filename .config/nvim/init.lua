@@ -17,6 +17,7 @@ vim.filetype.add({
     mjml = "html",
     gohtml = "html",
     templ = "templ",
+    thor = "ruby",
   },
 })
 

@@ -68,6 +68,8 @@ alias g-pr="gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout
 
 alias t='task'
 alias tu='taskwarrior-tui'
+alias tad='t add'
+alias tadd='~/.dotfiles/.config/scripts/add-task.sh'
 
 # --------------------
 # Terraform
