@@ -64,7 +64,7 @@ export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude git"
 
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:#353b45,bg:#282c34,spinner:#56b6c2,hl:#61afef --color=fg:#565c64,header:#61afef,info:#e5c07b,pointer:#56b6c2 --color=marker:#56b6c2,fg+:#b6bdca,prompt:#e5c07b,hl+:#61afef"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#8aadf4 --color=fg:#cad3f5,header:#8aadf4,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#8aadf4"
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 export FZF_CTRL_T_OPTS="--tmux --preview '$show_file_or_dir_preview'"
@@ -87,14 +87,6 @@ export EDITOR="nvim"
 export PATH="$PATH:$HOME/go/bin"
 export GOPRIVATE=github.com/dailypay
 export GONOSUMDB=github.com/dailypay/*
-unset GOPROXY && unset GOSUMDB
+unset GOPROXY
 
-function y() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-    yazi "$@" --cwd-file="$tmp"
-    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-        builtin cd -- "$cwd"
-    fi
-    rm -f -- "$tmp"
-}
 export PATH="$HOME/.local/bin:$PATH"

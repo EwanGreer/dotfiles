@@ -27,7 +27,11 @@ alias dcl='docker compose logs -f'
 alias dps='~/.config/scripts/docker-ps.sh'
 alias dk='~/.config/scripts/docker-kill.sh'
 
-alias clearDocker='docker rm $(docker ps -aq); docker rmi $(docker images -q); docker volume rm $(docker volume ls -q);'
+function clearDocker() {
+    docker rm $(docker ps -aq)
+    docker rmi $(docker images -q)
+    docker volume rm $(docker volume ls -q)
+}
 
 # --------------------
 # Tmux

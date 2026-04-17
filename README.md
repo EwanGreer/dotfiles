@@ -12,9 +12,14 @@ List of dependencies required for full use of dotfiles.
 - eza
 - fd
 - fzf
+- gh
 - git
+- gum (charmbracelet)
+- mise
 - neovim
 - oh-my-posh
+- ollama (model: deepseek-r1:14b)
+- fortune + cowsay
 - tmux
 - yazi
 - zoxide
