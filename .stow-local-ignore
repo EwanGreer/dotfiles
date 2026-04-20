@@ -1,0 +1,2 @@
+# Files/dirs managed per-machine — not symlinked by stow
+^/\.config/sesh
