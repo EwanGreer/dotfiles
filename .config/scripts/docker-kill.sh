@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+set -e
+
 SELECTED=$(docker ps --format '{{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}' \
   | fzf --multi \
   --header $'ID\t\t\tIMAGE\t\t\t\tNAME\t\tSTATUS' \
@@ -13,5 +15,6 @@ if [ -z "$SELECTED" ]; then
 fi
 
 echo "$SELECTED" | while read -r id; do
-docker stop "$id" && echo "Stopped: $id" || echo "Failed to stop: $id"
+echo "Stopping: $id"
+docker stop "$id" > /dev/null 2>&1 && echo "Stopped: $id" || echo "Failed to stop: $id"
 done
