@@ -45,8 +45,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
 elif [[ "$(uname)" == "Linux" ]]; then
     cached_eval ~/.cache/zsh/brew.zsh '/home/linuxbrew/.linuxbrew/bin/brew shellenv'
 fi
-export HOMEBREW_NO_ENV_HINTS=true
-
 cached_eval ~/.cache/zsh/mise.zsh '$HOME/.local/bin/mise activate zsh'
 cached_eval ~/.cache/zsh/mise-completions.zsh '$HOME/.local/bin/mise completion zsh'
 
@@ -55,9 +53,6 @@ cached_eval ~/.cache/zsh/zoxide.zsh 'zoxide init zsh --cmd cd'
 cached_eval ~/.cache/zsh/oh-my-posh.zsh \
     'oh-my-posh init zsh --config $HOME/.config/ohmyposh/catpuccin.toml'
 
-if [[ ! "$PATH" == */.fzf/bin* ]]; then
-    PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
-fi
 cached_eval ~/.cache/zsh/fzf.zsh 'fzf --zsh'
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude git"
@@ -82,11 +77,3 @@ _fzf_comprun() {
     esac
 }
 
-export TERM="xterm-256color"
-export EDITOR="nvim"
-export PATH="$PATH:$HOME/go/bin"
-export GOPRIVATE=github.com/dailypay
-export GONOSUMDB=github.com/dailypay/*
-unset GOPROXY
-
-export PATH="$HOME/.local/bin:$PATH"
