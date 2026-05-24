@@ -77,3 +77,4 @@ _fzf_comprun() {
     esac
 }
 
+export PATH="$HOME/.local/bin:$PATH"
