@@ -4,6 +4,8 @@
 .jira
 gh
 
+*.gitconfig*
+
 flutter
 github-copilot
 nvim.bak
