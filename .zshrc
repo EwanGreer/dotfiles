@@ -4,7 +4,7 @@ function cached_eval() {
 
     if [[ ! -f "$cache_file" ]]; then
         mkdir -p "$(dirname "$cache_file")"
-        eval "$cmd" > "$cache_file"
+        eval "$cmd" > "$cache_file" || rm -f "$cache_file"
     fi
     source "$cache_file"
 }

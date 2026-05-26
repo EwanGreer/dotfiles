@@ -18,7 +18,7 @@ Companion to `AUDIT-REPORT.md`. Each item is self-contained — pick any one to 
   3. Remove dead `HISTDUP=erase` — not a valid zsh option, dedup is handled by `setopt hist_ignore_all_dups`.
   4. Cache `uname` call — called twice for platform branching, store in a variable and reuse.
 
-- [ ] **Fix cached_eval to not cache failures**
+- [x] **Fix cached_eval to not cache failures**
   Change eval line to: `eval "$cmd" > "$cache_file" || rm -f "$cache_file"` so missing tools don't write empty cache files that get sourced silently.
 
 ## Scripts
