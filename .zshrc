@@ -55,7 +55,7 @@ cached_eval ~/.cache/zsh/mise-completions.zsh '$HOME/.local/bin/mise completion 
 cached_eval ~/.cache/zsh/zoxide.zsh 'zoxide init zsh --cmd cd'
 
 cached_eval ~/.cache/zsh/oh-my-posh.zsh \
-    'oh-my-posh init zsh --config $HOME/.config/ohmyposh/catpuccin.toml'
+    'oh-my-posh init zsh --config $HOME/.config/ohmyposh/catppuccin.toml'
 
 cached_eval ~/.cache/zsh/fzf.zsh 'fzf --zsh'
 

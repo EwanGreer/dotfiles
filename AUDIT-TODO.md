@@ -30,7 +30,7 @@ Companion to `AUDIT-REPORT.md`. Each item is self-contained — pick any one to 
 
 ## Tool Config
 
-- [ ] **Fix oh-my-posh missing palette entry and filename typo**
+- [x] **Fix oh-my-posh missing palette entry and filename typo**
   1. Add `grey = "#6e738d"` (Catppuccin Macchiato overlay2) to `[palette]` in the oh-my-posh config — docker/AWS segments reference `p:grey` but it's undefined.
   2. Rename `catpuccin.toml` to `catppuccin.toml` (missing second `c`) and update any references in `.zshrc`.
 
