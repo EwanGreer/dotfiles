@@ -20,21 +20,3 @@ vim.filetype.add({
     thor = "ruby",
   },
 })
-
--- Configure gopls with Neovim 0.11 native LSP
-vim.lsp.config.gopls = {
-  cmd = { "gopls" },
-  root_markers = { "go.mod", "go.work", ".git" },
-  filetypes = { "go", "gomod" },
-  settings = {
-    gopls = {
-      analyses = {
-        ST1000 = false, -- Disable package comment requirement
-      },
-      staticcheck = true,
-      gofumpt = true,
-    },
-  },
-}
-
-vim.lsp.enable({ "gopls" })

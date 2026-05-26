@@ -56,10 +56,7 @@ do
 
   vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-  vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-  vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-  vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-  vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+  -- Window navigation handled by tmux-navigator plugin (see kickstart.plugins.tmux-navigator)
 
   -- Buffer navigation
   vim.keymap.set('n', '<S-h>', '<cmd>bprevious<CR>', { desc = 'Prev buffer' })
@@ -279,24 +276,26 @@ do
     icons = { mappings = vim.g.have_nerd_font },
     spec = {
       { '<leader>b', group = '[B]uffer' },
+      { '<leader>d', group = '[D]ebug' },
       { '<leader>u', group = '[U]I Toggles' },
       { '<leader>x', group = 'Trouble' },
       { '<leader>q', group = 'Session' },
       { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
-      { '<leader>t', group = '[T]oggle' },
+      { '<leader>t', group = '[T]est' },
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+      { '<leader>r', group = '[R]efactor', mode = { 'n', 'v' } },
       { 'gr', group = 'LSP Actions', mode = { 'n' } },
     },
   }
 
-  vim.pack.add { gh 'folke/tokyonight.nvim' }
-  ---@diagnostic disable-next-line: missing-fields
-  require('tokyonight').setup {
-    styles = {
-      comments = { italic = false },
+  vim.pack.add { gh 'navarasu/onedark.nvim' }
+  require('onedark').setup {
+    style = 'dark',
+    code_style = {
+      comments = 'none',
     },
   }
-  vim.cmd.colorscheme 'tokyonight-night'
+  require('onedark').load()
 
   vim.pack.add { gh 'folke/todo-comments.nvim' }
   require('todo-comments').setup { signs = false }
@@ -410,14 +409,6 @@ do
   vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
     callback = function(event)
-      local map = function(keys, func, desc, mode)
-        mode = mode or 'n'
-        vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
-      end
-
-      map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
-      map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
-      map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
       local client = vim.lsp.get_client_by_id(event.data.client_id)
       if client and client:supports_method('textDocument/documentHighlight', event.buf) then
         local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
@@ -442,16 +433,11 @@ do
         })
       end
 
-      if client and client:supports_method('textDocument/inlayHint', event.buf) then
-        map('<leader>th', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }) end, '[T]oggle Inlay [H]ints')
-      end
     end,
   })
 
   ---@type table<string, vim.lsp.Config>
   local servers = {
-    stylua = {},
-
     gopls = {
       root_markers = { 'go.mod', 'go.work', '.git' },
       settings = {
@@ -505,6 +491,12 @@ do
   require('mason').setup {}
 
   local ensure_installed = vim.tbl_keys(servers or {})
+  vim.list_extend(ensure_installed, {
+    'stylua',
+    'gofumpt',
+    'goimports',
+    'golangci-lint',
+  })
 
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -523,18 +515,16 @@ do
   require('conform').setup {
     notify_on_error = false,
     format_on_save = function(bufnr)
-      if vim.g.disable_autoformat then return nil end
-      local enabled_filetypes = {}
-      if enabled_filetypes[vim.bo[bufnr].filetype] then
-        return { timeout_ms = 500 }
-      else
-        return nil
-      end
+      if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then return nil end
+      return { timeout_ms = 3000, lsp_format = 'fallback' }
     end,
     default_format_opts = {
       lsp_format = 'fallback',
     },
-    formatters_by_ft = {},
+    formatters_by_ft = {
+      lua = { 'stylua' },
+      go = { 'gofumpt', 'goimports' },
+    },
   }
 
   vim.keymap.set({ 'n', 'v' }, '<leader>cf', function() require('conform').format { async = true } end, { desc = 'Format buffer' })
@@ -626,6 +616,10 @@ do
   require 'kickstart.plugins.noice'
   require 'kickstart.plugins.ts-comments'
   require 'kickstart.plugins.session'
+  require 'kickstart.plugins.neotest'
+  require 'kickstart.plugins.tmux-navigator'
+  require 'kickstart.plugins.dadbod'
+  require 'kickstart.plugins.refactoring'
   require 'custom.plugins'
 end
 
