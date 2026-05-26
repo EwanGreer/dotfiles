@@ -11,6 +11,7 @@ function cached_eval() {
 
 alias regen='rm -rf ~/.cache/zsh && exec zsh'
 
+typeset -U path
 export PATH="$HOME/.local/bin:$PATH"
 
 [[ ! -f ~/.secrets.zsh ]] || source ~/.secrets.zsh
@@ -34,7 +35,6 @@ bindkey "ç" fzf-cd-widget
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
-HISTDUP=erase
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -43,9 +43,10 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-if [[ "$(uname)" == "Darwin" ]]; then
+local _os="$(uname)"
+if [[ "$_os" == "Darwin" ]]; then
     cached_eval ~/.cache/zsh/brew.zsh '/opt/homebrew/bin/brew shellenv'
-elif [[ "$(uname)" == "Linux" ]]; then
+elif [[ "$_os" == "Linux" ]]; then
     cached_eval ~/.cache/zsh/brew.zsh '/home/linuxbrew/.linuxbrew/bin/brew shellenv'
 fi
 cached_eval ~/.cache/zsh/mise.zsh '$HOME/.local/bin/mise activate zsh'

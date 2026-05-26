@@ -12,7 +12,7 @@ Companion to `AUDIT-REPORT.md`. Each item is self-contained — pick any one to 
   3. Move `zstyle` completion config above `source ~/.plugins.zsh` — styles are currently set after `compinit` runs and get ignored.
   4. Test: `regen`, verify case-insensitive completions work.
 
-- [ ] **Add source guards and PATH dedup**
+- [x] **Add source guards and PATH dedup**
   1. Add `.secrets.zsh` source guard: `[[ -f ~/.secrets.zsh ]] && source ~/.secrets.zsh` (matches existing `.local.zsh` pattern).
   2. Add `typeset -U path` near top of `.zshrc` to prevent PATH duplication across reloads.
   3. Remove dead `HISTDUP=erase` — not a valid zsh option, dedup is handled by `setopt hist_ignore_all_dups`.
