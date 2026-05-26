@@ -1,6 +1,8 @@
 # Files/dirs managed per-machine — not symlinked by stow
 ^/\.config/sesh
 
+^/\.git
+
 # Repo-management files — not part of the dotfiles
 ^/\.claude
 ^/CLAUDE\.md
