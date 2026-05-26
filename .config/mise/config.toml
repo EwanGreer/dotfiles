@@ -33,6 +33,8 @@ yq = "latest"
 "go:github.com/joshmedeski/sesh/v2" = "latest"
 "go:github.com/jorgerojas26/lazysql" = "latest"
 "go:github.com/spf13/cobra-cli" = "latest"
+"npm:markdownlint-cli" = "latest"
+"npm:tree-sitter-cli" = "latest"
 
 [settings]
 experimental = true

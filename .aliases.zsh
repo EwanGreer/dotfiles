@@ -94,3 +94,5 @@ alias tf="terraform"
 # --------------------
 
 alias gor='go run'
+
+alias nvim-kickstart='NVIM_APPNAME="kickstart-nvim" nvim'

@@ -8,3 +8,5 @@ vim.keymap.set("n", "<leader>DB", "<cmd>DBUI<cr>", { desc = "Open DBUI" })
 -- Obsidian
 vim.keymap.set("n", "<leader>os", "<cmd>Obsidian search<cr>", { desc = "Open an obsidian note" })
 vim.keymap.set("n", "<leader>oqs", "<cmd>Obsidian quick_switch<cr>", { desc = "Switch to another note" })
+
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
