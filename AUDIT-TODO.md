@@ -23,7 +23,7 @@ Companion to `AUDIT-REPORT.md`. Each item is self-contained — pick any one to 
 
 ## Scripts
 
-- [ ] **Fix script bugs (docker-kill, git-stage, docker-ps)**
+- [x] **Fix script bugs (docker-kill, git-stage, docker-ps)**
   1. `docker-kill.sh`: `set -e` kills the script when fzf exits with code 130 (user cancel) before the empty-check guard runs. Remove `set -e` or add `|| true` to the fzf call.
   2. `git-stage.sh`: `cut -c 4-` breaks on renamed files (`-> ` in output). `xargs git add` without `--` mishandles filenames starting with `-`. Add `--` and handle rename format.
   3. `docker-ps.sh`: glob match `"1)"*` is quoted inside `[[ ]]` making it a literal match. Unquote the glob: `[[ "$action" == "1)"* ]]`.

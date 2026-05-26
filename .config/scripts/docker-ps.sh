@@ -82,7 +82,9 @@ browse_containers() {
         docker restart "$container_id"
         ;;
       "7) Remove")
-        docker rm -f "$container_id"
+        echo -n "Remove container $container_id? [y/N] "
+        read -r confirm
+        [[ "$confirm" == [yY] ]] && docker rm -f "$container_id" || echo "Cancelled."
         ;;
     esac
     
