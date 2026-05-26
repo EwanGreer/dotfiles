@@ -6,7 +6,7 @@ Companion to `AUDIT-REPORT.md`. Each item is self-contained — pick any one to 
 
 ## Shell Init
 
-- [ ] **Fix shell init bugs (compinit, PATH order, zstyle)**
+- [x] **Fix shell init bugs (compinit, PATH order, zstyle)**
   1. In `.plugins.zsh`, change `${ZDOTDIR}/.zcompdump` to `${ZDOTDIR:-$HOME}/.zcompdump` — currently `ZDOTDIR` is unset so the 24-hour cache check never triggers and full `compinit` runs every shell start.
   2. Move `$HOME/.local/bin` PATH export above the first `cached_eval` call in `.zshrc` — mise depends on it but it's added after the cached evals.
   3. Move `zstyle` completion config above `source ~/.plugins.zsh` — styles are currently set after `compinit` runs and get ignored.
