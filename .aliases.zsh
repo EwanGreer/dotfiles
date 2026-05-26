@@ -49,7 +49,6 @@ function clearDocker() {
 # Tmux
 # --------------------
 
-alias tls='~/.config/scripts/tmux-ls.sh'
 
 # --------------------
 # AI
@@ -95,4 +94,4 @@ alias tf="terraform"
 
 alias gor='go run'
 
-alias nvim-kickstart='NVIM_APPNAME="kickstart-nvim" nvim'
+alias nvim-ks='NVIM_APPNAME="kickstart-nvim" nvim'

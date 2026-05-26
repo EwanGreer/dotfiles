@@ -1,8 +1,12 @@
 #!/bin/bash
 
-# Ensure gum is available
 if ! command -v gum &>/dev/null; then
   echo "Error: gum is not installed."
+  exit 1
+fi
+
+if ! command -v task &>/dev/null; then
+  echo "Error: taskwarrior is not installed. Install it with your system package manager."
   exit 1
 fi
 

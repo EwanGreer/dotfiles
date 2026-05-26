@@ -3,9 +3,6 @@ command = /usr/bin/zsh
 font-family = JetBrains Mono
 font-size = 19
 
-# theme = "catppuccin-macchiato.conf"
-# theme = "Atom One Dark"
-
 background = 282c34
 foreground = abb2bf
 palette = 0=#1e2127

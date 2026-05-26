@@ -34,11 +34,11 @@ Companion to `AUDIT-REPORT.md`. Each item is self-contained — pick any one to 
   1. Add `grey = "#6e738d"` (Catppuccin Macchiato overlay2) to `[palette]` in the oh-my-posh config — docker/AWS segments reference `p:grey` but it's undefined.
   2. Rename `catpuccin.toml` to `catppuccin.toml` (missing second `c`) and update any references in `.zshrc`.
 
-- [ ] **Fix fzf-tab preview and move GOPRIVATE**
+- [x] **Fix fzf-tab preview and move GOPRIVATE**
   1. Change fzf-tab preview from bare `ls --color $realpath` to `eza --color=always "$realpath"` — unquoted path and inconsistent with eza alias used everywhere else.
   2. Move `GOPRIVATE = "github.com/dailypay"` from `mise/config.toml` to `.local.zsh` (gitignored) — leaks employer context in a personal repo.
 
-- [ ] **Add missing tool dependencies to mise**
+- [x] **Add missing tool dependencies to mise**
   `taskwarrior` (used by `add-task.sh`), `fortune` and `cowsay` (used by `quote.sh`) are called by scripts but not in `mise/config.toml`. Add them to mise or add dependency checks to the scripts (or remove the scripts).
 
 ## Repo Hygiene
@@ -47,14 +47,14 @@ Companion to `AUDIT-REPORT.md`. Each item is self-contained — pick any one to 
   1. Delete `gh/` and `ngrok/` from repo root — symlinks to `.config/` dirs, gitignored so dead on fresh clone, stowing creates broken links.
   2. Add to `.stow-local-ignore`: `.claude/`, `CLAUDE.md`, `.markdownlint.yaml`, `AUDIT-REPORT.md`, `AUDIT-TODO.md`.
 
-- [ ] **Clean up dead config and theme files**
+- [x] **Clean up dead config and theme files**
   1. Remove unused `.config/ghostty/themes/catppuccin-macchiato.conf` and commented-out theme lines in ghostty config.
   2. Investigate orphaned dirs: `.config/feed/` (unknown tool), `.config/resterm/` (macOS-only terminal), `.config/go/telemetry/` (runtime state — gitignore it).
   3. Verify `tmux-ls.sh` is dead (sesh bindings in `.tmux.conf` do the same job) — remove if redundant along with `tls` alias.
 
 ## Neovim
 
-- [ ] **Document dual neovim setup**
+- [x] **Document dual neovim setup**
   1. Add alias to `.aliases.zsh`: `alias nvim-ks='NVIM_APPNAME="kickstart-nvim" nvim'`
   2. Add README section explaining: two configs exist (LazyVim daily driver, kickstart-nvim migration target using native `vim.pack`), switching via `nvim` vs `nvim-ks`, kickstart requires Neovim >= 0.12.
   3. Consolidate duplicate `mason.nvim` registration in kickstart-nvim (remove from `debug.lua`, keep in init.lua Section 5).
