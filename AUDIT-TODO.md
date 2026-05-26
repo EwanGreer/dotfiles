@@ -43,7 +43,7 @@ Companion to `AUDIT-REPORT.md`. Each item is self-contained — pick any one to 
 
 ## Repo Hygiene
 
-- [ ] **Harden .stow-local-ignore and remove orphaned root symlinks**
+- [x] **Harden .stow-local-ignore and remove orphaned root symlinks**
   1. Delete `gh/` and `ngrok/` from repo root — symlinks to `.config/` dirs, gitignored so dead on fresh clone, stowing creates broken links.
   2. Add to `.stow-local-ignore`: `.claude/`, `CLAUDE.md`, `.markdownlint.yaml`, `AUDIT-REPORT.md`, `AUDIT-TODO.md`.
 

@@ -1,2 +1,10 @@
 # Files/dirs managed per-machine — not symlinked by stow
 ^/\.config/sesh
+
+# Repo-management files — not part of the dotfiles
+^/\.claude
+^/CLAUDE\.md
+^/README\.md
+^/AUDIT-REPORT\.md
+^/AUDIT-TODO\.md
+^/\.markdownlint\.yaml
