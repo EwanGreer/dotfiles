@@ -1,3 +1,2 @@
-[user]
-	name = EwanGreer
-	email = ewanja.greer@gmail.com
+[init]
+	defaultBranch = main
