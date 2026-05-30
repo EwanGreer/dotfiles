@@ -37,8 +37,10 @@ while true; do
   [ -n "$PROJECT" ] && ARGS+=("project:$PROJECT")
 
   if [ -n "$TAG_INPUT" ]; then
-    for tag in ${TAG_INPUT//,/ }; do
-      ARGS+=("+$tag")
+    IFS=, read -ra tags <<< "$TAG_INPUT"
+    for tag in "${tags[@]}"; do
+      tag="${tag## }"; tag="${tag%% }"
+      [ -n "$tag" ] && ARGS+=("+$tag")
     done
   fi
 
