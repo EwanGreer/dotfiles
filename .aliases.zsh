@@ -36,7 +36,7 @@ alias dcu='docker compose up -d'
 alias dcub='docker compose up --build -d'
 alias dcd='docker compose down'
 alias dcl='docker compose logs -f'
-alias dps='~/.config/scripts/docker-ps.sh'
+alias dps='docker ps'
 alias dk='~/.config/scripts/docker-kill.sh'
 
 function clearDocker() {
