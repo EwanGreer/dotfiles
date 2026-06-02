@@ -6,7 +6,7 @@ RESET="Reset"
 ACTION=$(gum choose "$ADD" "$RESET")
 
 if [ "$ACTION" == "$ADD" ]; then
-  git status --short | cut -c 4- | gum choose --no-limit | xargs git add
+  git status --short | cut -c 4- | sed 's/.* -> //' | gum choose --no-limit | xargs -d '\n' git add --
 else
-  git status --short | cut -c 4- | gum choose --no-limit | xargs git restore
+  git status --short | cut -c 4- | sed 's/.* -> //' | gum choose --no-limit | xargs -d '\n' git restore --staged --
 fi

@@ -42,9 +42,8 @@ Shell scripts called by aliases. All use `fzf-tmux` for interactive selection:
 - `find-file.sh` — fuzzy-find and open a file in `$EDITOR` (`f` alias)
 - `docker-ps.sh` — interactive docker container management (`dps` alias)
 - `docker-kill.sh` — kill a container (`dk` alias)
-- `tmux-ls.sh` — switch/manage tmux sessions (`tls` alias)
 - `git-cc.sh` — conventional commit helper (`g-cc` alias)
 - `yazi.sh` — yazi wrapper that `cd`s to the last directory on exit (canonical `y` function)
 
 ### Theme
-Mixed: oh-my-posh uses Catppuccin Macchiato (`catpuccin.toml`); btop and FZF use One Dark (`#282c34` bg, `#61afef` blue, `#c678dd` purple). Keep new color values consistent with the One Dark palette for btop/FZF.
+Mixed: oh-my-posh uses Catppuccin Macchiato (`catppuccin.toml`); btop and FZF use One Dark (`#282c34` bg, `#61afef` blue, `#c678dd` purple). Keep new color values consistent with the One Dark palette for btop/FZF.

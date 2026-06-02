@@ -36,7 +36,7 @@ alias dcu='docker compose up -d'
 alias dcub='docker compose up --build -d'
 alias dcd='docker compose down'
 alias dcl='docker compose logs -f'
-alias dps='~/.config/scripts/docker-ps.sh'
+alias dps='docker ps'
 alias dk='~/.config/scripts/docker-kill.sh'
 
 function clearDocker() {
@@ -49,7 +49,6 @@ function clearDocker() {
 # Tmux
 # --------------------
 
-alias tls='~/.config/scripts/tmux-ls.sh'
 
 # --------------------
 # AI
@@ -95,4 +94,4 @@ alias tf="terraform"
 
 alias gor='go run'
 
-alias nvim-kickstart='NVIM_APPNAME="kickstart-nvim" nvim'
+alias nvim-ks='NVIM_APPNAME="kickstart-nvim" nvim'

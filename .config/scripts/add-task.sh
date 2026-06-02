@@ -1,8 +1,12 @@
 #!/bin/bash
 
-# Ensure gum is available
 if ! command -v gum &>/dev/null; then
   echo "Error: gum is not installed."
+  exit 1
+fi
+
+if ! command -v task &>/dev/null; then
+  echo "Error: taskwarrior is not installed. Install it with your system package manager."
   exit 1
 fi
 
@@ -33,8 +37,10 @@ while true; do
   [ -n "$PROJECT" ] && ARGS+=("project:$PROJECT")
 
   if [ -n "$TAG_INPUT" ]; then
-    for tag in ${TAG_INPUT//,/ }; do
-      ARGS+=("+$tag")
+    IFS=, read -ra tags <<< "$TAG_INPUT"
+    for tag in "${tags[@]}"; do
+      tag="${tag## }"; tag="${tag%% }"
+      [ -n "$tag" ] && ARGS+=("+$tag")
     done
   fi
 

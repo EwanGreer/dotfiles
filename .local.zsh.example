@@ -1,0 +1,6 @@
+# Machine-local overrides (this file is gitignored)
+# Copy to ~/.local.zsh and customise.
+
+# export GOPRIVATE="github.com/your-org"
+# export GONOSUMDB="github.com/your-org/*"
+# export GOPROXY="direct"

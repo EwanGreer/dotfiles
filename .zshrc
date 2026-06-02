@@ -4,14 +4,24 @@ function cached_eval() {
 
     if [[ ! -f "$cache_file" ]]; then
         mkdir -p "$(dirname "$cache_file")"
-        eval "$cmd" > "$cache_file"
+        eval "$cmd" > "$cache_file" || rm -f "$cache_file"
     fi
     source "$cache_file"
 }
 
 alias regen='rm -rf ~/.cache/zsh && exec zsh'
 
+typeset -U path
+export PATH="$HOME/.local/bin:$PATH"
+
 [[ ! -f ~/.secrets.zsh ]] || source ~/.secrets.zsh
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --color=always "$realpath"'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza --color=always "$realpath"'
+
 [[ ! -f ~/.plugins.zsh ]] || source ~/.plugins.zsh
 [[ ! -f ~/.aliases.zsh ]] || source ~/.aliases.zsh
 [[ ! -f ~/.local.zsh ]] || source ~/.local.zsh
@@ -25,7 +35,6 @@ bindkey "ç" fzf-cd-widget
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
-HISTDUP=erase
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -34,15 +43,10 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-
-if [[ "$(uname)" == "Darwin" ]]; then
+local _os="$(uname)"
+if [[ "$_os" == "Darwin" ]]; then
     cached_eval ~/.cache/zsh/brew.zsh '/opt/homebrew/bin/brew shellenv'
-elif [[ "$(uname)" == "Linux" ]]; then
+elif [[ "$_os" == "Linux" ]]; then
     cached_eval ~/.cache/zsh/brew.zsh '/home/linuxbrew/.linuxbrew/bin/brew shellenv'
 fi
 cached_eval ~/.cache/zsh/mise.zsh '$HOME/.local/bin/mise activate zsh'
@@ -51,7 +55,7 @@ cached_eval ~/.cache/zsh/mise-completions.zsh '$HOME/.local/bin/mise completion 
 cached_eval ~/.cache/zsh/zoxide.zsh 'zoxide init zsh --cmd cd'
 
 cached_eval ~/.cache/zsh/oh-my-posh.zsh \
-    'oh-my-posh init zsh --config $HOME/.config/ohmyposh/catpuccin.toml'
+    'oh-my-posh init zsh --config $HOME/.config/ohmyposh/catppuccin.toml'
 
 cached_eval ~/.cache/zsh/fzf.zsh 'fzf --zsh'
 
@@ -76,5 +80,3 @@ _fzf_comprun() {
         *) fzf --preview "$show_file_or_dir_preview" "$@" ;;
     esac
 }
-
-export PATH="$HOME/.local/bin:$PATH"

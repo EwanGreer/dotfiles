@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-set -e
-
 SELECTED=$(docker ps --format '{{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}' \
   | fzf --multi \
   --header $'ID\t\t\tIMAGE\t\t\t\tNAME\t\tSTATUS' \

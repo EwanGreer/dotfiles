@@ -7,6 +7,7 @@ os = "#ACB0BE"
 pink = "#F5BDE6"
 lavender = "#B7BDF8"
 blue = "#8AADF4"
+grey = "#6E738D"
 
 [[blocks]]
 alignment = "left"
