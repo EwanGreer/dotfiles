@@ -313,6 +313,8 @@ do
 
   require('mini.surround').setup()
 
+  require('mini.tabline').setup()
+
   local statusline = require 'mini.statusline'
   statusline.setup { use_icons = vim.g.have_nerd_font }
   ---@diagnostic disable-next-line: duplicate-set-field
@@ -543,6 +545,7 @@ do
     keymap = { preset = 'default' },
     appearance = { nerd_font_variant = 'mono' },
     completion = {
+      list = { selection = { preselect = false, auto_insert = false } },
       documentation = { auto_show = false, auto_show_delay_ms = 500 },
     },
 
