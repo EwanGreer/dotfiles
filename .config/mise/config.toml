@@ -35,6 +35,7 @@ yq = "latest"
 "go:github.com/spf13/cobra-cli" = "latest"
 "npm:markdownlint-cli" = "latest"
 "npm:tree-sitter-cli" = "latest"
+"aqua:walles/moor" = "latest"
 
 [settings]
 experimental = true

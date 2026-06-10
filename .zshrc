@@ -14,6 +14,10 @@ alias regen='rm -rf ~/.cache/zsh && exec zsh'
 typeset -U path
 export PATH="$HOME/.local/bin:$PATH"
 
+export NVIM_APPNAME="kickstart-nvim"
+export EDITOR="nvim"
+export VISUAL="nvim"
+
 [[ ! -f ~/.secrets.zsh ]] || source ~/.secrets.zsh
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -67,7 +71,7 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:#353b45,bg:#282c34,spinne
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 export FZF_CTRL_T_OPTS="--tmux --preview '$show_file_or_dir_preview'"
-export FZF_TMUX_OPTS='-p 80%,60% --layout=reverse-list'
+export FZF_CTRL_R_OPTS="--height=100%"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 _fzf_comprun() {

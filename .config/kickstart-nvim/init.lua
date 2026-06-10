@@ -451,6 +451,11 @@ do
       },
     },
 
+    ruby_lsp = {
+      cmd = { 'ruby-lsp' },
+      root_markers = { 'Gemfile', '.git' },
+    },
+
     lua_ls = {
       on_init = function(client)
         client.server_capabilities.documentFormattingProvider = false
@@ -492,7 +497,9 @@ do
 
   require('mason').setup {}
 
-  local ensure_installed = vim.tbl_keys(servers or {})
+  local ensure_installed = vim.tbl_filter(function(name)
+    return name ~= 'ruby_lsp'
+  end, vim.tbl_keys(servers or {}))
   vim.list_extend(ensure_installed, {
     'stylua',
     'gofumpt',
@@ -542,7 +549,10 @@ do
 
   vim.pack.add { { src = gh 'saghen/blink.cmp', version = vim.version.range '1.*' } }
   require('blink.cmp').setup {
-    keymap = { preset = 'default' },
+    keymap = {
+      preset = 'default',
+      ['<CR>'] = { 'accept', 'fallback' },
+    },
     appearance = { nerd_font_variant = 'mono' },
     completion = {
       list = { selection = { preselect = false, auto_insert = false } },

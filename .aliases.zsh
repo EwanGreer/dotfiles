@@ -72,6 +72,7 @@ alias mr='mise run'
 
 alias g-cc='~/.config/scripts/git-cc.sh'
 alias g-pr="gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout"
+alias g-prs='~/.config/scripts/my-prs.sh'
 
 # --------------------
 # Taskwarrior
