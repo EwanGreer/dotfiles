@@ -136,9 +136,7 @@ do
   vim.keymap.set('n', '<leader>wd', '<C-W>c', { desc = 'Delete Window', remap = true })
 
   -- Floating terminal
-  vim.keymap.set({ 'n', 't' }, '<c-/>', function()
-    vim.cmd 'botright split | terminal'
-  end, { desc = 'Terminal' })
+  vim.keymap.set({ 'n', 't' }, '<c-/>', function() vim.cmd 'botright split | terminal' end, { desc = 'Terminal' })
 
   -- New file
   vim.keymap.set('n', '<leader>fn', '<cmd>enew<cr>', { desc = 'New File' })
@@ -163,12 +161,8 @@ do
   vim.keymap.set('n', '<leader>ul', '<cmd>set number!<CR>', { desc = 'Toggle Line Numbers' })
   vim.keymap.set('n', '<leader>uL', '<cmd>set relativenumber!<CR>', { desc = 'Toggle Relative Numbers' })
   vim.keymap.set('n', '<leader>us', '<cmd>set spell!<CR>', { desc = 'Toggle Spelling' })
-  vim.keymap.set('n', '<leader>ud', function()
-    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-  end, { desc = 'Toggle Diagnostics' })
-  vim.keymap.set('n', '<leader>uc', function()
-    vim.o.conceallevel = vim.o.conceallevel == 0 and 2 or 0
-  end, { desc = 'Toggle Conceal' })
+  vim.keymap.set('n', '<leader>ud', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, { desc = 'Toggle Diagnostics' })
+  vim.keymap.set('n', '<leader>uc', function() vim.o.conceallevel = vim.o.conceallevel == 0 and 2 or 0 end, { desc = 'Toggle Conceal' })
   vim.keymap.set('n', '<leader>uf', function()
     vim.g.disable_autoformat = not vim.g.disable_autoformat
     vim.notify('Auto-format ' .. (vim.g.disable_autoformat and 'disabled' or 'enabled'))
@@ -184,9 +178,7 @@ do
       vim.treesitter.start()
     end
   end, { desc = 'Toggle Treesitter Highlight' })
-  vim.keymap.set('n', '<leader>uh', function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-  end, { desc = 'Toggle Inlay Hints' })
+  vim.keymap.set('n', '<leader>uh', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = 'Toggle Inlay Hints' })
   vim.keymap.set('n', '<leader>ui', vim.show_pos, { desc = 'Inspect Pos' })
   vim.keymap.set('n', '<leader>ur', '<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>', { desc = 'Redraw / Clear hlsearch' })
 
@@ -202,9 +194,7 @@ do
     callback = function(args)
       local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
       local line_count = vim.api.nvim_buf_line_count(args.buf)
-      if mark[1] > 0 and mark[1] <= line_count then
-        pcall(vim.api.nvim_win_set_cursor, 0, mark)
-      end
+      if mark[1] > 0 and mark[1] <= line_count then pcall(vim.api.nvim_win_set_cursor, 0, mark) end
     end,
   })
 
@@ -275,6 +265,7 @@ do
     delay = 300,
     icons = { mappings = vim.g.have_nerd_font },
     spec = {
+      { '<leader>E', group = 'Rails' },
       { '<leader>b', group = '[B]uffer' },
       { '<leader>d', group = '[D]ebug' },
       { '<leader>u', group = '[U]I Toggles' },
@@ -434,7 +425,6 @@ do
           end,
         })
       end
-
     end,
   })
 
@@ -497,9 +487,7 @@ do
 
   require('mason').setup {}
 
-  local ensure_installed = vim.tbl_filter(function(name)
-    return name ~= 'ruby_lsp'
-  end, vim.tbl_keys(servers or {}))
+  local ensure_installed = vim.tbl_filter(function(name) return name ~= 'ruby_lsp' end, vim.tbl_keys(servers or {}))
   vim.list_extend(ensure_installed, {
     'stylua',
     'gofumpt',
