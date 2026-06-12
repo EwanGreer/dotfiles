@@ -36,6 +36,7 @@ yq = "latest"
 "npm:markdownlint-cli" = "latest"
 "npm:tree-sitter-cli" = "latest"
 "aqua:walles/moor" = "latest"
+delta = "latest"
 
 [settings]
 experimental = true
