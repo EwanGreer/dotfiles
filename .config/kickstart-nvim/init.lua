@@ -203,6 +203,10 @@ do
     group = vim.api.nvim_create_augroup('kickstart-auto-save', { clear = true }),
     command = 'silent! wall',
   })
+
+  vim.filetype.add {
+    extension = { slim = 'slim' },
+  }
 end
 
 -- ============================================================

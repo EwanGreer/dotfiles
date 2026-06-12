@@ -3,6 +3,7 @@
 
 vim.pack.add {
   'https://github.com/tpope/vim-rails',
+  'https://github.com/slim-template/vim-slim',
 }
 
 vim.keymap.set('n', '<leader>Ev', '<cmd>Eview<CR>', { desc = '[E]dit [v]iew template' })
