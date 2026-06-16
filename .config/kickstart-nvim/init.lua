@@ -11,6 +11,7 @@ do
   vim.o.mouse = 'a'
   vim.o.showmode = false
   vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
+  vim.o.wrap = false
   vim.o.breakindent = true
 
   vim.o.tabstop = 4
@@ -30,7 +31,7 @@ do
   vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
   vim.o.inccommand = 'split'
   vim.o.cursorline = true
-  vim.o.scrolloff = 10
+  vim.o.scrolloff = 3
   vim.o.confirm = true
 
   vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
