@@ -3,6 +3,9 @@
 vim.pack.add { 'https://github.com/mfussenegger/nvim-lint' }
 
 local lint = require 'lint'
+
+lint.linters['markdownlint'].args = { '--disable', 'MD012', 'MD013', '--' }
+
 lint.linters_by_ft = {
   markdown = { 'markdownlint' },
   go = { 'golangcilint' },
