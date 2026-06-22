@@ -311,6 +311,18 @@ do
 
   require('mini.tabline').setup()
 
+  -- Swap active/inactive tab highlighting: active tab is bright, inactive is dimmed
+  vim.api.nvim_create_autocmd('ColorScheme', {
+    pattern = '*',
+    callback = function()
+      local current = vim.api.nvim_get_hl(0, { name = 'MiniTablineCurrent', link = false })
+      local hidden = vim.api.nvim_get_hl(0, { name = 'MiniTablineHidden', link = false })
+      vim.api.nvim_set_hl(0, 'MiniTablineCurrent', hidden)
+      vim.api.nvim_set_hl(0, 'MiniTablineHidden', current)
+    end,
+  })
+  vim.cmd 'doautocmd ColorScheme'
+
   local statusline = require 'mini.statusline'
   statusline.setup { use_icons = vim.g.have_nerd_font }
   ---@diagnostic disable-next-line: duplicate-set-field
